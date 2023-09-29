@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+      .back-to-top {
+  background-color: deeppink;
+  text-decoration: none;
+  cursor: pointer;
+  width: 56px;
+  height: 56px;
+  z-index: 999;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 100%;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.4);
+}
+.back-to-top:hover {
+  background-color: #ff51af;
+}
+.back-to-top:active {
+  box-shadow: none;
+  background-color: #d60074;
+}
+.back-to-top svg.icon__arrow-up {
+  fill: white;
+  width: 32px;
+  height: 32px;
+}
+
+body {
+  /* background-color: #eee; */
+  /* min-height: 100vh; */
+  height: 10000px;
+}
+/* body .box {
+  padding: 40px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+/* body .box-2 {
+  background-color: #ddd;
+}
+body .box-3 {
+  background-color: #ccc;
+}
+body .box-4 {
+  background-color: #bbb;
+}
+body .box .title {
+  margin: 0;
+  text-align: center;
+} */
+    </style>
+
+</head>
+
+
+<a href="javascript:void(0)" id="backToTop" class="back-to-top" style="display:none;">
+  <svg class="icon__arrow-up" viewBox="0 0 24 24">
+    <title>Back to top</title>
+    <path d="M18.71,11.71a1,1,0,0,1-1.42,0L13,7.41V19a1,1,0,0,1-2,0V7.41l-4.29,4.3a1,1,0,0,1-1.42-1.42l6-6a1,1,0,0,1,1.42,0l6,6A1,1,0,0,1,18.71,11.71Z"/>
+  </svg>
+</a>
+
+
+
+  
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+    
+    $(document).ready(() => {
+  
+  const backToTop = $('#backToTop')
+  const amountScrolled = 300
+  
+  $(window).scroll(() => {
+    $(window).scrollTop() >= amountScrolled 
+      ? backToTop.fadeIn('fast') 
+      : backToTop.fadeOut('fast')
+  })
+  
+  backToTop.click(() => {
+    $('body, html').animate({
+      scrollTop: 0
+    }, 600)
+    return false
+  })
+})
+</script>
+</body>
+</html>
